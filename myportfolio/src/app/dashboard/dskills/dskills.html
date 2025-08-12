@@ -1,0 +1,58 @@
+
+<div class="content-wrapper p-4 bg-dark text-white rounded">
+  <section class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0">Skills Section</h2>
+      <button class="btn add-btn" (click)="openModal()">Add New</button>
+    </div>
+
+    <table class="table table-dark table-striped" *ngIf="skillsList && skillsList.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Percentage</th>
+          <th>Icon</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let skill of skillsList">
+          <td>{{ skill.name }}</td>
+          <td>{{ skill.percentage }}%</td>
+          <td><img [src]="skill.icon" alt="{{ skill.name }}" 
+            style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;"
+            /></td>
+          <td>
+            <div class="btn-group-controls d-flex gap-2">
+              <button class="btn btn-text edit-btn btn-sm" (click)="onEdit(skill)">Edit</button>
+              <button class="btn btn-danger btn-sm btn-text delete-btn" (click)="deleteItem(skill._id!)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="skillsModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <form [formGroup]="skillsForm" (ngSubmit)="saveData()">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ editingId ? 'Edit' : 'Add' }} Skill</h5>
+          <button type="button" class="btn-close btn-close-white" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <input formControlName="name" class="form-control mb-2" placeholder="Skill Name">
+          <input type="number" formControlName="percentage" class="form-control mb-2" placeholder="Percentage">
+          <input formControlName="icon" class="form-control mb-2" placeholder="Icon class (e.g. fa fa-code)">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-text edit-btn">Save</button>
+          <button type="button" class="btn btn-text delete-btn" (click)="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="main-container mb-1">
+  <div class="skills-container container">
+    <h1 class="skills-title">Skills</h1>
+
+    <div class="row skills-grid">
+      <div *ngFor="let skill of skills" class="col-12 col-md-4 mb-4">
+        <div class="skill-card text-center">
+          <div class="skill-icon-wrapper">
+            <img [src]="skill.icon" alt="{{ skill.name }}" />
+            <div class="skill-percentage">
+              {{ skill.percentage }}%
+            </div>
+          </div>
+          <h2>{{ skill.name }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

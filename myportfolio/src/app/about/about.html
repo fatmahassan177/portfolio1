@@ -1,0 +1,27 @@
+<section class="about-section container py-5 mb-1" *ngIf="aboutData">
+  <div class="about-wrapper">
+     <div class="about-image">
+      <img src="img/profile.jpg" alt="Profile Photo">
+     
+    </div>
+    <div class="about-content">
+      <h2 class="about-title">{{ aboutData.title }}</h2>
+      <p class="about-description">{{ aboutData.t_description }}</p>
+
+      <div class="about-columns">
+        <div class="about-column">
+          <h3>Interests</h3>
+          <ul>
+            <li><strong>{{ aboutData.intersted }}</strong> - {{ aboutData.int_description }}</li>
+          </ul>
+        </div>
+        <div class="about-column">
+          <h3>Education</h3>
+          <ul>
+            <li><strong>{{ aboutData.education }}</strong> - {{ aboutData.edu_description }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

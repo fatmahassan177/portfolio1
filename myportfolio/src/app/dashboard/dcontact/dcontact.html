@@ -1,0 +1,30 @@
+<div class="content-wrapper p-4 bg-dark text-white rounded">
+  <section class="mb-5">
+    <h2 class="mb-3">Contact Section</h2>
+
+    <table class="table table-dark table-striped" *ngIf="contacts && contacts.length > 0">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Message</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.FirstName }}</td>
+          <td>{{ contact.LastName }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.message }}</td>
+          <td>
+            <div class="btn-group-controls">
+              <button class="btn-text" (click)="deleteItem(contact._id!)">delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

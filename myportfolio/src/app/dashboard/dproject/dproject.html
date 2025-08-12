@@ -1,0 +1,84 @@
+
+
+<div class="content-wrapper p-4 bg-dark text-white rounded">
+  <section class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0">Projects</h2>
+      <button class="btn add-btn btn-text" (click)="openModal()">Add New Project</button>
+    </div>
+
+    <table class="table table-dark table-striped" *ngIf="projects && projects.length > 0">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Link</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>
+            <img 
+              [src]="filePreview && editingId === project._id ? filePreview : ('http://localhost:3000/image/' + project.img)" 
+              width="60" alt="project image">
+          </td>
+          <td>{{ project.title }}</td>
+          <td>{{ project.description }}</td>
+          <td><a [href]="project.link" target="_blank" rel="noopener noreferrer">View</a></td>
+          <td>
+            <div class="btn-group-controls d-flex gap-2">
+              <button class="btn btn-text edit-btn btn-sm" (click)="onEdit(project)">Edit</button>
+              <button class="btn btn-text delete-btn btn-sm" (click)="deleteProject(project._id!)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true" aria-labelledby="projectModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">{{ editingId ? 'Edit Project' : 'Add Project' }}</h5>
+        <button type="button" class="btn-close btn-close-white" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="projectForm" (ngSubmit)="saveData()">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input id="title" formControlName="title" class="form-control" placeholder="Project Title" />
+            <div *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched" class="text-danger">
+              Title is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" formControlName="description" class="form-control" placeholder="Description"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="link" class="form-label">Link</label>
+            <input id="link" formControlName="link" class="form-control" placeholder="https://example.com" />
+            <div *ngIf="projectForm.get('link')?.invalid && projectForm.get('link')?.touched" class="text-danger">
+              Valid URL is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Image</label>
+            <input id="img" type="file" (change)="onFileChange($event)" class="form-control" />
+            <div *ngIf="!editingId && !projectForm.get('img')?.value" class="text-danger mt-1">Image is required for new projects.</div>
+            <div *ngIf="filePreview" class="mt-2">
+              <img [src]="filePreview" width="100" alt="Preview" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-text edit-btn">Save</button>
+          <button type="button" class="btn btn-text delete-btn" (click)="closeModal()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

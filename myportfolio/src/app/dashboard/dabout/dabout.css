@@ -1,0 +1,48 @@
+.btn-text {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+.add-btn {
+  background-color: #1a1a1a; /* نفس لون الخلفية */
+  color: #ffffff;
+  border: 1px solid #333; /* خط بسيط يبان مع الـ hover */
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #444; /* لون أفتح شوية */
+  border-color: #555;
+}
+/* زر الإضافة */
+.btn-text.add-btn {
+  color: #ffffff;
+}
+.btn-text.add-btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+/* زر التعديل */
+.btn-text.edit-btn {
+  color: #ffc107;
+}
+.btn-text.edit-btn:hover {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+
+/* زر الحذف */
+.btn-text.delete-btn {
+  color: #dc3545;
+}
+.btn-text.delete-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

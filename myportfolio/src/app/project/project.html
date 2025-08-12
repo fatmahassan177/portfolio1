@@ -1,0 +1,19 @@
+<section class="projects-section py-5 mb-1">
+  <div class="container">
+    <h2 class="text-center mb-5">My Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let project of Projects">
+        <div class="card project-card h-100">
+          <img [src]="'http://localhost:3000/image/' + project.img" class="card-img-top" [alt]="project.title" />
+          <div class="card-body">
+            <h5 class="card-title">{{ project.title }}</h5>
+            <p class="card-text">{{ project.description }}</p>
+          </div>
+          <div class="card-footer text-center">
+            <a [href]="project.link" class="btn btn-custom-blue" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

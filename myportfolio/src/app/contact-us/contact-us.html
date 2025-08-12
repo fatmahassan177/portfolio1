@@ -1,0 +1,42 @@
+
+<div class="bg-dark text-light min-vh-100 py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h1 class="display-4 fw-bold text-light">Contact us</h1>
+        <p class="lead text-secondary mt-3">
+          Need to get in touch with us? Either fill out the form with your inquiry or find the <a href="#" class="text-info text-decoration-none">department email</a> you'd like to contact below.
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card bg-dark-subtle border-secondary p-4 shadow">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="FirstName" class="form-label fw-semibold text-light">First name*</label>
+                <input id="FirstName" type="text" formControlName="FirstName" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder=" " required>
+              </div>
+              <div class="col-md-6">
+                <label for="LastName" class="form-label fw-semibold text-light">Last name*</label>
+                <input id="LastName" type="text" formControlName="LastName" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder=" " required>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <label for="email" class="form-label fw-semibold text-light">Email*</label>
+              <input id="email" type="email" formControlName="email" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder=" " required>
+            </div>
+
+            <div class="mt-3">
+              <label for="message" class="form-label fw-semibold text-light">What can we help you with?</label>
+              <textarea id="message" formControlName="message" rows="4" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder=" " required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-info btn-lg w-100 mt-4" >Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

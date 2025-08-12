@@ -1,0 +1,92 @@
+.about-section {
+  background-color: #1a1a1a; /* لون خلفية داكن أخضر مشابه للصورة */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.about-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.about-image {
+  position: relative;
+  flex: 1 1 300px;
+  max-width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #0f3d21;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+}
+
+.phone-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: #0b2f17;
+  border-radius: 50%;
+  padding: 10px;
+  color: #9be39b;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 0 6px #9be39b;
+}
+
+.about-content {
+  flex: 2 1 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-title {
+  font-family: serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.about-columns {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.about-column {
+  flex: 1 1 300px;
+}
+
+.about-column h3 {
+  font-family: serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.about-column ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.about-column ul li {
+  margin-bottom: 10px;
+}

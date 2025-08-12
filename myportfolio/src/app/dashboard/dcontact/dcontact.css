@@ -1,0 +1,22 @@
+.btn-group-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #ffffff; /* لون النص الافتراضي */
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-text:hover {
+  color: #fff; /* لون النص لما تعمل هافر */
+  background-color: #444; /* نفس لون السايد بار الخلفي */
+  border-radius: 5px;
+  
+ 
+}
